@@ -9,8 +9,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.ronnie.presentation.theme.YassirTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalAnimationApi
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

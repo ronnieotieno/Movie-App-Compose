@@ -1,6 +1,8 @@
 plugins {
 	id 'com.android.application'
 	id 'org.jetbrains.kotlin.android'
+	id 'kotlin-kapt'
+	id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -38,6 +40,9 @@ android {
 	composeOptions {
 		kotlinCompilerExtensionVersion compose_version
 	}
+	hilt {
+		enableAggregatingTask = true
+	}
 	packagingOptions {
 		resources {
 			excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -61,4 +66,13 @@ dependencies {
 
 	implementation project(':presentation')
 	implementation project(':commons')
+
+	//dagger hilt
+	implementation "com.google.dagger:hilt-android:$hiltVersion"
+	kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+	kapt "androidx.hilt:hilt-compiler:$hiltCompiler"
+	implementation "androidx.hilt:hilt-work:$hiltCompiler"
+	implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+	kapt "androidx.hilt:hilt-compiler:1.0.0"
+	implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 }

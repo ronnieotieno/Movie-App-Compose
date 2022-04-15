@@ -13,15 +13,17 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.ronnie.presentation.R
 import com.ronnie.presentation.Screen
+import com.ronnie.presentation.viewmodels.MovieViewModel
 
 @Composable
-fun MovieListItem(navController: NavController) {
+fun MovieListItem(navController: NavController, viewModel:MovieViewModel = hiltViewModel()) {
     Box(
         Modifier
-            .clickable { navController.navigate(Screen.Detail.createRoute("ff")) }
+            .clickable { navController.navigate(Screen.Detail.createRoute(viewModel.uiState)) }
             .fillMaxWidth()) {
         Row(
             Modifier
