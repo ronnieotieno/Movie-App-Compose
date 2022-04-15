@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ronnie.presentation.R
 import com.ronnie.presentation.Screen
-import kotlin.random.Random
 
 @Composable
 fun MovieListItem(navController: NavController) {
