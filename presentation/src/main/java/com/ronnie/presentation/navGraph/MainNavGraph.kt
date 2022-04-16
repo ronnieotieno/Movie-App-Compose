@@ -26,7 +26,7 @@ fun MainNavGraph() {
                     animationSpec = tween(700)
                 )
             },
-            popExitTransition = {
+            exitTransition = {
                 slideOutOfContainer(
                     AnimatedContentScope.SlideDirection.Right,
                     animationSpec = tween(700)
