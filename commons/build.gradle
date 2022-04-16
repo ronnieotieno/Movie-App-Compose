@@ -12,6 +12,9 @@ android {
 
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 		consumerProguardFiles "consumer-rules.pro"
+
+		buildConfigField("String", "KEY", "\"" + getKey() + "\"")
+		buildConfigField("String", "BASE_URL", "\"" + getBaseUrl() + "\"")
 	}
 
 	buildTypes {
@@ -37,4 +40,12 @@ dependencies {
 	testImplementation 'junit:junit:4.13.2'
 	androidTestImplementation 'androidx.test.ext:junit:1.1.3'
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+def getKey() {
+	return project.findProperty("api_key")
+}
+
+def getBaseUrl() {
+	return project.findProperty("base_url")
 }

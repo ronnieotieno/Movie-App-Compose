@@ -10,14 +10,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ronnie.domain.model.movieDetail.Genre
 
 @Composable
-fun GenreChip(){
+fun GenreChip(genre:Genre){
     Surface(
         modifier = Modifier.padding(end = 6.dp, start = 6.dp),
         shape = RoundedCornerShape(12.dp), color = Color(0xFFDCDCDC)
     ){
-      Text(text = "Family", color = Color.DarkGray, fontSize = 12.sp, fontWeight= FontWeight.Bold,
+      Text(text = genre.name, color = Color.DarkGray, fontSize = 12.sp, fontWeight= FontWeight.Bold,
           modifier = Modifier
           .padding(end = 8.dp, start = 8.dp, top = 6.dp, bottom = 6.dp))
     }

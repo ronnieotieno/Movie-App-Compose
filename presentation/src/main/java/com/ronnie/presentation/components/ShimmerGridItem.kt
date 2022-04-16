@@ -30,7 +30,7 @@ fun ShimmerGridItem(brush: Brush) {
                .background(brush)
            )
 
-           Spacer(modifier = Modifier.height(10.dp)) //creates an empty space between
+           Spacer(modifier = Modifier.height(10.dp))
            Spacer(modifier = Modifier
                .height(20.dp)
                .clip(RoundedCornerShape(10.dp))

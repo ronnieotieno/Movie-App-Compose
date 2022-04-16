@@ -58,4 +58,10 @@ dependencies {
 	androidTestImplementation "org.mockito:mockito-core:$mockito"
 	testImplementation "org.mockito:mockito-core:$mockito"
 	androidTestImplementation "org.mockito:mockito-android:$mockito"
+
+	//pagination
+	implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+
+	implementation project(':commons')
+	implementation project(':domain')
 }
