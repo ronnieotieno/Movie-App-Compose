@@ -8,5 +8,6 @@ import javax.inject.Inject
 @HiltViewModel
 class ListViewModel @Inject constructor(private val movieListUseCase: MovieListUseCase) :
     ViewModel() {
-   fun getMovies() = movieListUseCase.invoke()
+    val movieList get() = getMovies()
+     fun getMovies() = movieListUseCase.invoke()
 }

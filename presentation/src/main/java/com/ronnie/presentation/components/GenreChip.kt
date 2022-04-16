@@ -15,7 +15,7 @@ import com.ronnie.domain.model.movieDetail.Genre
 @Composable
 fun GenreChip(genre:Genre){
     Surface(
-        modifier = Modifier.padding(end = 6.dp, start = 6.dp),
+        modifier = Modifier.padding(end = 12.dp),
         shape = RoundedCornerShape(12.dp), color = Color(0xFFDCDCDC)
     ){
       Text(text = genre.name, color = Color.DarkGray, fontSize = 12.sp, fontWeight= FontWeight.Bold,

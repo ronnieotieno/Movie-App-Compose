@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -53,11 +54,11 @@ fun MovieListItem(navController: NavController, movie:Movie) {
                     .align(CenterVertically),
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(text = movie.title, color = Color.Black, fontSize = 14.sp)
+                Text(text = movie.title, color = Color.Black, fontSize = 14.sp, fontWeight = FontWeight.Bold)
                 Spacer(Modifier.height(10.dp))
                 if(movie.release_date != null) {
                     movie.release_date?.substringBefore("-")
-                        ?.let { Text(text = it, color = Color.DarkGray, fontSize = 14.sp) }
+                        ?.let { Text(text = it, color = Color.Black, fontSize = 14.sp) }
                 }
                 Spacer(Modifier.height(10.dp))
                 Row(
@@ -65,7 +66,7 @@ fun MovieListItem(navController: NavController, movie:Movie) {
                         .fillMaxWidth()
                 ) {
                     Text(
-                        text = movie.vote_average.toString(), color = Color.DarkGray, fontSize = 14.sp,
+                        text = movie.vote_average.toString(), color = Color.Black, fontSize = 14.sp,
                     )
                     Spacer(modifier = Modifier.width(5.dp))
                     Image(

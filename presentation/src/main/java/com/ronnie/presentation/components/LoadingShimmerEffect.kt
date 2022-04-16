@@ -21,7 +21,7 @@ fun LoadingShimmerEffect() {
         targetValue = 1000f,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = 200,
+                durationMillis = 1000,
                 easing = FastOutLinearInEasing
             )
         )

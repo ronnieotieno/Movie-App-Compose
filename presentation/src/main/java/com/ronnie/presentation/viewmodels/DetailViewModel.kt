@@ -16,6 +16,7 @@ class DetailViewModel @Inject constructor(private val movieDetailUseCase: MovieD
     val movieDetail get() = _detailResponse
 
     fun getMovieDetail(id:Int) = viewModelScope.launch{
+        _detailResponse.emit(UiState(true, null, false))
         when (val response = movieDetailUseCase.invoke(id)) {
             is NetworkResult.Success -> {
                 _detailResponse.emit(UiState(false, response.value, false))
