@@ -24,7 +24,7 @@ fun MainNavGraph() {
             ListScreen(navController)
         }
         composable(route = Screen.Detail.route) { backStackEntry ->
-            val movieId = backStackEntry.arguments?.getString("movie")
+            val movieId = backStackEntry.arguments?.getString("movieId")
             requireNotNull(movieId) { "Movie parameter wasn't found. Please make sure it's set!" }
             DetailScreen(navController, movieId)
         }

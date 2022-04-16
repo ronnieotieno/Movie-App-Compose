@@ -9,5 +9,5 @@ import javax.inject.Inject
 class ListViewModel @Inject constructor(private val movieListUseCase: MovieListUseCase) :
     ViewModel() {
     val movieList get() = getMovies()
-     fun getMovies() = movieListUseCase.invoke()
+     private fun getMovies() = movieListUseCase.invoke()
 }
