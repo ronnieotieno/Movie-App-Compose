@@ -1,7 +1,6 @@
 package com.ronnie.data.di
 
 import android.app.Application
-import android.content.Context
 import com.ronnie.commons.BASE_URL
 import com.ronnie.commons.BuildConfig
 import com.ronnie.commons.CACHE_NAME
@@ -12,13 +11,8 @@ import com.ronnie.domain.repository.MoviesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Cache
-import okhttp3.CacheControl
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.Response
+import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -14,9 +15,16 @@ import com.ronnie.presentation.components.MovieDetails
 import com.ronnie.presentation.viewmodels.DetailViewModel
 
 @Composable
-fun DetailScreen(navController: NavController, movieId: String, viewModel: DetailViewModel = hiltViewModel()) {
-    viewModel.getMovieDetail(movieId.toInt())
-    val detail = viewModel.movieDetail.collectAsState()
+fun DetailScreen(
+    navController: NavController,
+    movieId: String,
+    viewModel: DetailViewModel = hiltViewModel()
+) {
+    val detailRemember = remember {
+        viewModel.getMovieDetail(movieId.toInt())
+        viewModel.movieDetail
+    }
+    val detail = detailRemember.collectAsState()
     Scaffold(
         topBar = {
             TopAppBar(

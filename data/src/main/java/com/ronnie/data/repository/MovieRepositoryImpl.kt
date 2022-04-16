@@ -12,12 +12,13 @@ import com.ronnie.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class MovieRepositoryImpl @Inject constructor(private val api:MovieApi): MoviesRepository, BaseRepository() {
+class MovieRepositoryImpl @Inject constructor(private val api: MovieApi) : MoviesRepository,
+    BaseRepository() {
     override fun getMovies(): Flow<PagingData<Movie>> {
         return Pager(
             config = PagingConfig(enablePlaceholders = false, pageSize = 25),
             pagingSourceFactory = {
-               MovieDataSource(api)
+                MovieDataSource(api)
             }
         ).flow
     }

@@ -13,13 +13,18 @@ import androidx.compose.ui.unit.sp
 import com.ronnie.domain.model.movieDetail.Genre
 
 @Composable
-fun GenreChip(genre:Genre){
+fun GenreChip(genre: Genre) {
     Surface(
         modifier = Modifier.padding(end = 12.dp),
         shape = RoundedCornerShape(12.dp), color = Color(0xFFDCDCDC)
-    ){
-      Text(text = genre.name, color = Color.DarkGray, fontSize = 12.sp, fontWeight= FontWeight.Bold,
-          modifier = Modifier
-          .padding(end = 8.dp, start = 8.dp, top = 6.dp, bottom = 6.dp))
+    ) {
+        Text(
+            text = genre.name,
+            color = Color.DarkGray,
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(end = 8.dp, start = 8.dp, top = 6.dp, bottom = 6.dp)
+        )
     }
 }

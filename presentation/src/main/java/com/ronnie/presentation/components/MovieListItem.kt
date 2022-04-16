@@ -15,7 +15,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -23,10 +22,9 @@ import com.ronnie.commons.IMAGE_URL
 import com.ronnie.domain.model.movieList.Movie
 import com.ronnie.presentation.R
 import com.ronnie.presentation.utils.Screen
-import com.ronnie.presentation.viewmodels.ListViewModel
 
 @Composable
-fun MovieListItem(navController: NavController, movie:Movie) {
+fun MovieListItem(navController: NavController, movie: Movie) {
     Box(
         Modifier
             .clickable { navController.navigate(Screen.Detail.createRoute(movie.id.toString())) }
@@ -54,9 +52,14 @@ fun MovieListItem(navController: NavController, movie:Movie) {
                     .align(CenterVertically),
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(text = movie.title, color = Color.Black, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                Text(
+                    text = movie.title,
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold
+                )
                 Spacer(Modifier.height(10.dp))
-                if(movie.release_date != null) {
+                if (movie.release_date != null) {
                     movie.release_date?.substringBefore("-")
                         ?.let { Text(text = it, color = Color.Black, fontSize = 14.sp) }
                 }

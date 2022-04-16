@@ -5,6 +5,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -18,7 +19,10 @@ import com.ronnie.presentation.viewmodels.ListViewModel
 
 @Composable
 fun ListScreen(navController: NavController, viewModel: ListViewModel = hiltViewModel()) {
-    val lazyMovieItems = viewModel.movieList.collectAsLazyPagingItems()
+    val itemsRemember = remember {
+        viewModel.movieList
+    }
+    val lazyMovieItems = itemsRemember.collectAsLazyPagingItems()
     Scaffold(
         topBar = {
             TopAppBar(

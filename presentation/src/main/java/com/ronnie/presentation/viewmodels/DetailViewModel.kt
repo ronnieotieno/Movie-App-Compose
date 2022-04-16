@@ -11,18 +11,20 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel @Inject constructor(private val movieDetailUseCase: MovieDetailUseCase): ViewModel() {
-    private val _detailResponse: MutableStateFlow<UiState> = MutableStateFlow(UiState(true, null, false))
+class DetailViewModel @Inject constructor(private val movieDetailUseCase: MovieDetailUseCase) :
+    ViewModel() {
+    private val _detailResponse: MutableStateFlow<UiState> =
+        MutableStateFlow(UiState(true, null, false))
     val movieDetail get() = _detailResponse
 
-    fun getMovieDetail(id:Int) = viewModelScope.launch{
+    fun getMovieDetail(id: Int) = viewModelScope.launch {
         _detailResponse.emit(UiState(true, null, false))
         when (val response = movieDetailUseCase.invoke(id)) {
             is NetworkResult.Success -> {
                 _detailResponse.emit(UiState(false, response.value, false))
             }
             is NetworkResult.Failure -> {
-                _detailResponse.emit(UiState(false,null, true))
+                _detailResponse.emit(UiState(false, null, true))
             }
 
         }
