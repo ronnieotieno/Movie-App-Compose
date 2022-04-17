@@ -37,6 +37,8 @@ fun MovieListItem(navController: NavController, movie: MovieView) {
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(movie.image)
                     .crossfade(true)
+                    .placeholder(R.drawable.movie_place_holder)
+                    .error(R.drawable.movie_place_holder)
                     .build(),
                 contentDescription = "movie Image",
                 modifier = Modifier

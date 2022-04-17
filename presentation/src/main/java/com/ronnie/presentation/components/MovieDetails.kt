@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.ronnie.domain.model.UiState
+import com.ronnie.presentation.R
 import com.ronnie.presentation.theme.Teal200
 
 @Composable
@@ -33,6 +34,8 @@ fun MovieDetails(state: UiState) {
             model = ImageRequest.Builder(LocalContext.current)
                 .data(movieDetail?.image)
                 .crossfade(true)
+                .placeholder(R.drawable.movie_place_holder)
+                .error(R.drawable.movie_place_holder)
                 .build(),
             contentDescription = "movie Image",
             modifier = Modifier
