@@ -7,14 +7,14 @@ import com.ronnie.data.api.MovieApi
 import com.ronnie.data.datasource.MovieDataSource
 import com.ronnie.domain.model.NetworkResult
 import com.ronnie.domain.model.movieDetail.MovieDetailResponse
-import com.ronnie.domain.model.movieList.Movie
+import com.ronnie.domain.model.uiView.MovieView
 import com.ronnie.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(private val api: MovieApi) : MoviesRepository,
     BaseRepository() {
-    override fun getMovies(): Flow<PagingData<Movie>> {
+    override fun getMovies(): Flow<PagingData<MovieView>> {
         return Pager(
             config = PagingConfig(enablePlaceholders = false, pageSize = 25),
             pagingSourceFactory = {

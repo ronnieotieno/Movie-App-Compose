@@ -18,13 +18,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.ronnie.commons.IMAGE_URL
-import com.ronnie.domain.model.movieList.Movie
+import com.ronnie.domain.model.uiView.MovieView
 import com.ronnie.presentation.R
 import com.ronnie.presentation.utils.Screen
 
 @Composable
-fun MovieListItem(navController: NavController, movie: Movie) {
+fun MovieListItem(navController: NavController, movie: MovieView) {
     Box(
         Modifier
             .clickable { navController.navigate(Screen.Detail.createRoute(movie.id.toString())) }
@@ -36,7 +35,7 @@ fun MovieListItem(navController: NavController, movie: Movie) {
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(IMAGE_URL + movie.poster_path)
+                    .data(movie.image)
                     .crossfade(true)
                     .build(),
                 contentDescription = "movie Image",
@@ -59,17 +58,14 @@ fun MovieListItem(navController: NavController, movie: Movie) {
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.height(10.dp))
-                if (movie.release_date != null) {
-                    movie.release_date?.substringBefore("-")
-                        ?.let { Text(text = it, color = Color.Black, fontSize = 14.sp) }
-                }
+                Text(text = movie.release_date, color = Color.Black, fontSize = 14.sp)
                 Spacer(Modifier.height(10.dp))
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
                     Text(
-                        text = movie.vote_average.toString(), color = Color.Black, fontSize = 14.sp,
+                        text = movie.vote, color = Color.Black, fontSize = 14.sp,
                     )
                     Spacer(modifier = Modifier.width(5.dp))
                     Image(

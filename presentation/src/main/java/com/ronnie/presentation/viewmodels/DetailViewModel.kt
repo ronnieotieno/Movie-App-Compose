@@ -2,6 +2,7 @@ package com.ronnie.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ronnie.domain.converters.toMovieDetail
 import com.ronnie.domain.model.NetworkResult
 import com.ronnie.domain.model.UiState
 import com.ronnie.domain.useCases.MovieDetailUseCase
@@ -21,7 +22,7 @@ class DetailViewModel @Inject constructor(private val movieDetailUseCase: MovieD
         _detailResponse.emit(UiState(true, null, false))
         when (val response = movieDetailUseCase.invoke(id)) {
             is NetworkResult.Success -> {
-                _detailResponse.emit(UiState(false, response.value, false))
+                _detailResponse.emit(UiState(false, response.value.toMovieDetail(), false))
             }
             is NetworkResult.Failure -> {
                 _detailResponse.emit(UiState(false, null, true))

@@ -16,13 +16,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.ronnie.commons.IMAGE_URL
 import com.ronnie.domain.model.UiState
 import com.ronnie.presentation.theme.Teal200
 
 @Composable
 fun MovieDetails(state: UiState) {
-    val data = state.data
+    val movieDetail = state.data
     val scrollState = rememberScrollState()
     Column(
         Modifier
@@ -32,7 +31,7 @@ fun MovieDetails(state: UiState) {
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(IMAGE_URL + data?.poster_path)
+                .data(movieDetail?.image)
                 .crossfade(true)
                 .build(),
             contentDescription = "movie Image",
@@ -47,17 +46,14 @@ fun MovieDetails(state: UiState) {
         ) {
             Column {
                 Spacer(Modifier.height(10.dp))
-                data?.title?.let {
-                    Text(
-                        text = it,
-                        color = Color.Black,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                Text(
+                    text = movieDetail?.title ?: "",
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold
+                )
                 Spacer(Modifier.height(10.dp))
-                data?.release_date?.substringBefore("-")
-                    ?.let { Text(text = it, color = Color.Black, fontSize = 14.sp) }
+                Text(text = movieDetail?.release_date ?: "", color = Color.Black, fontSize = 14.sp)
             }
             Row(
                 modifier = Modifier
@@ -67,7 +63,7 @@ fun MovieDetails(state: UiState) {
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    text = data?.vote_average.toString(),
+                    text = movieDetail?.vote ?: "",
                     color = Teal200,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold
@@ -82,13 +78,13 @@ fun MovieDetails(state: UiState) {
         }
         Spacer(Modifier.height(10.dp))
         LazyRow {
-            data?.genres?.size?.let { total ->
+            movieDetail?.genres?.size?.let { total ->
                 items(total) {
-                    GenreChip(data.genres[it])
+                    GenreChip(movieDetail.genres[it])
                 }
             }
         }
         Spacer(Modifier.height(10.dp))
-        data?.overview?.let { Text(text = it, color = Color.Black, fontSize = 14.sp) }
+        Text(text = movieDetail?.overView ?: "", color = Color.Black, fontSize = 14.sp)
     }
 }

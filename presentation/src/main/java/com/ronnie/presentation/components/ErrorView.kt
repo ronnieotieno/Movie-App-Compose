@@ -19,7 +19,7 @@ import com.ronnie.presentation.theme.Teal200
 
 
 @Composable
-fun ErrorView(function: () -> Unit) {
+fun ErrorView(retryFunction: () -> Unit) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
@@ -40,7 +40,7 @@ fun ErrorView(function: () -> Unit) {
                 textAlign = TextAlign.Center,
             )
             Button(
-                onClick = { function.invoke() }, colors = ButtonDefaults.buttonColors(
+                onClick = { retryFunction.invoke() }, colors = ButtonDefaults.buttonColors(
                     backgroundColor = Teal200,
                     contentColor = Color.White
                 )

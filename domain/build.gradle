@@ -51,4 +51,5 @@ dependencies {
 
 	//pagination
 	implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+	implementation project(':commons')
 }
