@@ -38,7 +38,7 @@ fun MovieDetails(state: UiState) {
                 .build(),
             contentDescription = "movie Image",
             modifier = Modifier
-                .height(250.dp)
+                .height(300.dp)
                 .fillMaxWidth(),
             contentScale = ContentScale.Fit
         )
@@ -81,8 +81,8 @@ fun MovieDetails(state: UiState) {
         Spacer(Modifier.height(10.dp))
         LazyRow {
             movieDetail?.genres?.size?.let { total ->
-                items(total) {
-                    GenreChip(movieDetail.genres[it])
+                items(total) { index ->
+                    GenreChip(movieDetail.genres[index])
                 }
             }
         }
