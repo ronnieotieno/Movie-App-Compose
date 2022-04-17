@@ -34,7 +34,6 @@ fun MovieDetails(state: UiState) {
             model = ImageRequest.Builder(LocalContext.current)
                 .data(movieDetail?.image)
                 .crossfade(true)
-                .placeholder(R.drawable.movie_place_holder)
                 .error(R.drawable.movie_place_holder)
                 .build(),
             contentDescription = "movie Image",
