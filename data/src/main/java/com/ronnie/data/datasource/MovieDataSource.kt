@@ -13,8 +13,7 @@ import java.io.IOException
  */
 class MovieDataSource(
     private val api: MovieApi,
-) :
-    PagingSource<Int, MovieView>() {
+) : PagingSource<Int, MovieView>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieView> {
         val page = params.key ?: FIRST_PAGE
         return try {
