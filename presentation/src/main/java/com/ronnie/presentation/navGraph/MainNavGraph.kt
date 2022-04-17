@@ -23,13 +23,13 @@ fun MainNavGraph() {
             enterTransition = {
                 slideIntoContainer(
                     AnimatedContentScope.SlideDirection.Left,
-                    animationSpec = tween(700)
+                    animationSpec = tween(500)
                 )
             },
             exitTransition = {
                 slideOutOfContainer(
                     AnimatedContentScope.SlideDirection.Right,
-                    animationSpec = tween(700)
+                    animationSpec = tween(500)
                 )
             }) { backStackEntry ->
             val movieId = backStackEntry.arguments?.getString("movieId")
