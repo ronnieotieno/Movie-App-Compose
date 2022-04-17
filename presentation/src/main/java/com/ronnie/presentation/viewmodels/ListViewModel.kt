@@ -8,7 +8,6 @@ import com.ronnie.domain.model.uiView.MovieView
 import com.ronnie.domain.useCases.MovieListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 @HiltViewModel
