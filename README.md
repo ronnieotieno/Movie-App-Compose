@@ -66,4 +66,7 @@ Libraries used in the whole application are:
 
 ## Screenshots
 
-Todo
+|<img src="screenshots/loading.png" width=300/>|<img src="screenshots/list.png" width=300/>|
+|:----:|:----:|
+|<img src="screenshots/detail.png" width=300/>|<img src="screenshots/error.png" width=300/>|
+|:----:|:----:|
