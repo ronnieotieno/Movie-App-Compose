@@ -38,7 +38,8 @@ the usecase which communicates with Repository to get data.
 
 ## Testing
 
-Todo
+The Data tests are located in the unit tests folder on the data module. To run the tests,
+run `./gradlew data:test`, results will be posted on `data/build/test-results`
 
 ## Libraries
 
@@ -68,5 +69,6 @@ Libraries used in the whole application are:
 
 |<img src="screenshots/loading.png" width=300/>|<img src="screenshots/list.png" width=300/>|
 |:----:|:----:|
+
 |<img src="screenshots/detail.png" width=300/>|<img src="screenshots/error.png" width=300/>|
 |:----:|:----:|
