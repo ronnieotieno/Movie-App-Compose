@@ -19,7 +19,7 @@ import com.ronnie.presentation.viewmodels.ListViewModel
 
 @Composable
 fun ListScreen(navController: NavController, viewModel: ListViewModel = hiltViewModel()) {
-    val lazyMovieItems  = remember {
+    val lazyMovieItems = remember {
         viewModel.movieList
     }.collectAsLazyPagingItems()
 
