@@ -8,8 +8,7 @@ import com.ronnie.domain.converters.toMovieView
 import com.ronnie.domain.model.movieList.MovieResponse
 import com.ronnie.domain.model.uiView.MovieView
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -50,7 +49,7 @@ class MovieDataSourceTest {
         Mockito.`when`(apiService.getMovies(anyInt()))
             .thenReturn(movieResponse)
 
-        assertThat(
+        assertEquals(
             pagingSource.load(
                 PagingSource.LoadParams.Refresh(
                     key = null,
@@ -58,13 +57,11 @@ class MovieDataSourceTest {
                     placeholdersEnabled = false
                 )
             ),
-            CoreMatchers.equalTo(
-                PagingSource.LoadResult.Page(
-                    data = movieViewList,
-                    prevKey = null,
-                    nextKey = 2
-                )
-            ),
+            PagingSource.LoadResult.Page(
+                data = movieViewList,
+                prevKey = null,
+                nextKey = 2
+            )
         )
     }
 
