@@ -19,10 +19,10 @@ import com.ronnie.presentation.viewmodels.ListViewModel
 
 @Composable
 fun ListScreen(navController: NavController, viewModel: ListViewModel = hiltViewModel()) {
-    val itemsRemember = remember {
+    val lazyMovieItems  = remember {
         viewModel.movieList
-    }
-    val lazyMovieItems = itemsRemember.collectAsLazyPagingItems()
+    }.collectAsLazyPagingItems()
+
     val listState = rememberLazyListState()
     Scaffold(
         topBar = {

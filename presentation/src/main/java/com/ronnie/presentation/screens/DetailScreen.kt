@@ -20,11 +20,11 @@ fun DetailScreen(
     movieId: String,
     viewModel: DetailViewModel = hiltViewModel()
 ) {
-    val detailRemember = remember {
+    val detail = remember {
         viewModel.getMovieDetail(movieId.toInt())
         viewModel.movieDetail
-    }
-    val detail = detailRemember.collectAsState()
+    }.collectAsState()
+
     Scaffold(
         topBar = {
             TopAppBar(
