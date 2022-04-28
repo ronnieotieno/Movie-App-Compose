@@ -6,8 +6,6 @@ import com.ronnie.commons.BuildConfig
 import com.ronnie.commons.CACHE_NAME
 import com.ronnie.commons.KEY
 import com.ronnie.data.api.MovieApi
-import com.ronnie.data.repository.MovieRepositoryImpl
-import com.ronnie.domain.repository.MoviesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -83,10 +81,4 @@ object DataModule {
             10485760L
         )
     }
-
-    @Provides
-    @Singleton
-    fun providesRepository(
-        api: MovieApi,
-    ): MoviesRepository = MovieRepositoryImpl(api)
 }
